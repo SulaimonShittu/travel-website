@@ -1,0 +1,75 @@
+{
+  "info": {
+    "_postman_id": "b5e48c1c-2c94-4f4c-9c5c-00123abc4567",
+    "name": "SkillsForge API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Contact",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"full_name\": \"Jane Doe\",\n  \"email\": \"jane@example.com\",\n  \"phone_number\": \"1234567890\",\n  \"subject\": \"Help Needed\",\n  \"comment\": \"I'd like to know more about your packages.\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/v1/contacts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["v1", "contacts"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Contacts",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/v1/contacts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["v1", "contacts"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Contact by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/v1/contacts/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["v1", "contacts", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Destinations",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/v1/destinations",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["v1", "destinations"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
