@@ -12,6 +12,7 @@ import (
 )
 
 func main() {
+	storage.InitDB()
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 

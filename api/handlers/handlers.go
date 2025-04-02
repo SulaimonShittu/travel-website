@@ -6,10 +6,10 @@ import (
 	"strconv"
 	"sync"
 	"time"
+	"travel-website/api/models"
 	"travel-website/api/storage"
 
 	"github.com/go-chi/chi/v5"
-	"travel-website/api/models"
 )
 
 var mutex sync.Mutex
@@ -31,11 +31,12 @@ func createContactHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	mutex.Lock()
-	c.ID = storage.NextContactID()
 	c.CreatedAt = time.Now()
-	storage.SaveContact(c)
-	mutex.Unlock()
+
+	if err := storage.SaveContact(c); err != nil {
+		http.Error(w, "could not save contact", http.StatusInternalServerError)
+		return
+	}
 
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(c)
